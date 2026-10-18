@@ -1,3 +1,4 @@
+from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -47,6 +48,7 @@ class Settings(BaseSettings):
     enable_ragas_evaluation: bool = False
 
 
+@lru_cache
 def get_settings() -> Settings:
     """Get the settings for the application."""
     return Settings()
